@@ -45,7 +45,7 @@ This project is a modular, full-stack AI assistant tailored for R&D teams, start
 
 | Layer        | Tools / Libraries                                |
 |--------------|--------------------------------------------------|
-| **Frontend** | React, Tailwind CSS, ShadCN UI, Lucide Icons     |
+| **Frontend** | React, CSS                                       |
 | **Backend**  | Django REST Framework, MongoEngine, LangChain    |
 | **Database** | MongoDB Atlas                                    |
 | **AI Models**| Ollama (LLaMA 3), Local LLM Agents               |
