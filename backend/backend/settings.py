@@ -24,7 +24,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@v-@nx+n!(#&x8#szav7khb#_)2r6xd*q2u%(g*dxr8wh3y_o*'
+SECRET_KEY = 'Enter your key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -104,6 +104,7 @@ from mongoengine import connect, get_connection
 from pymongo.errors import ServerSelectionTimeoutError
 
 def check_mongo_connection():
+    # enter this data from your env file
     try:
         connect(
             db=os.getenv('DBNAME'),
