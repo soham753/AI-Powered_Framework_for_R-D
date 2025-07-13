@@ -34,9 +34,9 @@ This project is a modular, full-stack AI assistant tailored for R&D teams, start
 
 ### 🧲 5. R&D Cost Estimator
 - Calculates estimated project costs based on:
-  - Tools used
-  - Number of components
-  - Estimated hours and team size
+  - Material Cost
+  - Employee Cost
+  - Over Heads
 - Helps with budgeting and project planning.
 
 ---
