@@ -1,0 +1,462 @@
+:root {
+  /* Colors */
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #121212;
+  --card-bg: #1a1a1a;
+  --card-border: #2a2a2a;
+  --input-bg: #252525;
+  --input-border: #3a3a3a;
+  --primary-blue: #3a7bd5;
+  --primary-blue-hover: #2c6bc7;
+  --light-blue: #5a9bff;
+  --accent-purple: #8a2be2;
+  --text-white: #ffffff;
+  --text-light: #f0f0f0;
+  --text-gray: #b0b0b0;
+  --text-dimmed: #888;
+  --text-placeholder: #666;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --focus-glow: rgba(58, 123, 213, 0.3);
+  --overlay-color: rgba(0, 0, 0, 0.7);
+
+  /* Sizes */
+  --card-padding: 24px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --transition-speed: 0.25s;
+  --transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toolDashboard_container {
+  background-color: var(--primary-bg);
+  color: var(--text-white);
+  min-height: 100vh;
+  padding: 0 2rem 3rem;
+}
+
+.toolDashboard_header {
+  border-bottom: 1px solid var(--card-border);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.toolDashboard_header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+  opacity: 0.3;
+}
+
+.toolDashboard_header-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.toolDashboard_back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--light-blue);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all var(--transition-speed) var(--transition-easing);
+  position: relative;
+  overflow: hidden;
+}
+
+.toolDashboard_back-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(90, 155, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.toolDashboard_back-button:hover::before {
+  transform: translateX(0);
+}
+
+.toolDashboard_back-button:hover {
+  background-color: var(--secondary-bg);
+  box-shadow: 0 4px 12px rgba(90, 155, 255, 0.1);
+}
+
+.toolDashboard_back-button svg {
+  width: 1em;
+  height: 1em;
+  transition: transform 0.2s ease;
+}
+
+.toolDashboard_back-button:hover svg {
+  transform: translateX(-2px);
+}
+
+.toolDashboard_header-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toolDashboard_title-gradient {
+  background: linear-gradient(90deg, var(--light-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.toolDashboard_header-title-group h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--text-light);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.toolDashboard_header-subtitle {
+  margin: 0.5rem 0 0;
+  color: var(--text-dimmed);
+  font-size: 0.9rem;
+  max-width: 80%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.toolDashboard_user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toolDashboard_profile-info {
+  text-align: right;
+}
+
+.toolDashboard_welcome-message {
+  margin: 0;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.toolDashboard_username {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.toolDashboard_user-role {
+  margin: 0.1rem 0 0;
+  color: var(--text-dimmed);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.toolDashboard_profile-circle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-easing);
+  position: relative;
+  overflow: hidden;
+}
+
+.toolDashboard_profile-circle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.toolDashboard_profile-circle:hover::after {
+  opacity: 1;
+}
+
+.toolDashboard_profile-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px var(--focus-glow);
+}
+
+.toolDashboard_profile-initial {
+  color: var(--text-white);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.toolDashboard_content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.toolDashboard_tools-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.toolDashboard_section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toolDashboard_tools-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.toolDashboard_tool-count {
+  background-color: var(--input-bg);
+  color: var(--text-gray);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+}
+
+.toolDashboard_tools-filter {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.toolDashboard_filter-btn {
+  background-color: var(--input-bg);
+  color: var(--text-gray);
+  border: 1px solid var(--input-border);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all var(--transition-speed) var(--transition-easing);
+  position: relative;
+  overflow: hidden;
+}
+
+.toolDashboard_filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.toolDashboard_filter-btn:hover::before {
+  opacity: 1;
+}
+
+.toolDashboard_filter-btn:hover {
+  background-color: var(--card-bg);
+  color: var(--text-light);
+  transform: translateY(-1px);
+}
+
+.toolDashboard_filter-btn.toolDashboard_active {
+  background-color: var(--primary-blue);
+  color: var(--text-white);
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 12px rgba(58, 123, 213, 0.3);
+}
+
+.toolDashboard_tools-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Animation for tool cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toolDashboard_tools-container > * {
+  animation: fadeInUp 0.4s var(--transition-easing) forwards;
+  opacity: 0;
+}
+
+.toolDashboard_tools-container > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.toolDashboard_tools-container > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.toolDashboard_tools-container > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.toolDashboard_tools-container > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .toolDashboard_header-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .toolDashboard_back-button {
+    order: 1;
+  }
+  
+  .toolDashboard_header-title-group {
+    order: 2;
+    text-align: center;
+  }
+  
+  .toolDashboard_user-profile {
+    order: 3;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .toolDashboard_profile-info {
+    text-align: center;
+  }
+  
+  .toolDashboard_tools-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolDashboard_container {
+    padding: 0 1.5rem 2rem;
+  }
+  
+  .toolDashboard_header-title-group h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolDashboard_container {
+    padding: 0 1rem 2rem;
+  }
+  
+  .toolDashboard_tools-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .toolDashboard_header-title-group h1 {
+    font-size: 1.4rem;
+  }
+  
+  .toolDashboard_header-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+/* Add these styles to your existing CSS */
+.toolDashboard_project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.toolDashboard_project-name {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--light-blue);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.toolDashboard_header-title-group h1 {
+  margin-bottom: 0.25rem;
+}
+
+.toolDashboard_header-title-group h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--text-light);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.toolDashboard_section-title h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* Adjust header layout for smaller screens */
+@media (max-width: 1024px) {
+  .toolDashboard_project-info {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .toolDashboard_project-name {
+    font-size: 1.1rem;
+  }
+  
+  .toolDashboard_header-title-group h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolDashboard_project-name {
+    font-size: 1rem;
+  }
+  
+  .toolDashboard_header-title-group h2 {
+    font-size: 1.4rem;
+  }
+  
+  .toolDashboard_section-title h3 {
+    font-size: 1.3rem;
+  }
+}
+
