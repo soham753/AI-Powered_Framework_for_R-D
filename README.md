@@ -56,6 +56,7 @@ This project is a modular, full-stack AI assistant tailored for R&D teams, start
 ## 📺 Demo
 
 
-https://github.com/user-attachments/assets/3ae5bbc7-6636-45a0-8848-74d305aea6c1
+https://github.com/user-attachments/assets/e8df7729-9035-465a-8461-29f9bebd859b
+
 
 
