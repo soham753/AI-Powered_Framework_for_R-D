@@ -51,3 +51,11 @@ This project is a modular, full-stack AI assistant tailored for R&D teams, start
 | **AI Models**| Ollama (LLaMA 3), Local LLM Agents               |
 | **Scraping** | BeautifulSoup, Requests                          |
 
+
+
+## 📺 Demo
+
+
+https://github.com/user-attachments/assets/3ae5bbc7-6636-45a0-8848-74d305aea6c1
+
+
